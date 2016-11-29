@@ -1,10 +1,12 @@
-<h1>Cats</h1>
+<h2>Cats</h2>
 
-<div>
-  <h2>{{cats.pet.name.$t}}</h2>
-  <img ng-src="{{cats.img}}" alt="">
-  <p>Age: {{cats.pet.age.$t}}</p>
-  <p>Gender: {{cats.pet.sex.$t}}</p>
-  <p>Description: {{cats.pet.description.$t}}</p>
+    <div class="col-md-3">
+      <img class="center-block vcenter" ng-src="{{cats.img}}" alt="cat picture">
+    </div>
 
-  </div>
+    <div class="col-md-9">
+      <h3>{{cats.pet.name.$t}}</h3>
+      <p>Age: {{cats.pet.age.$t}}</p>
+      <p>Gender: {{cats.pet.sex.$t}}</p>
+      <p>Description: {{cats.pet.description.$t}}</p>
+    </div>

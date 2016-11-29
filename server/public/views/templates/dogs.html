@@ -1,11 +1,13 @@
-<h1>Dogs</h1>
+<h2>Dogs</h2>
 
-<div>
-  <h2>{{dogs.pet.name.$t}}</h2>
-  <img ng-src="{{dogs.img}}" alt="">
-  <p>Age: {{dogs.pet.age.$t}}</p>
-  <p>Gender: {{dogs.pet.sex.$t}}</p>
-  <p>Description: {{dogs.pet.description.$t}}</p>
 
+  <div class="col-md-3">
+    <img class="center-block vcenter" ng-src="{{dogs.img}}" alt="dog picture">
   </div>
-</div>
+
+  <div class="col-md-9">
+    <h3>{{dogs.pet.name.$t}}</h3>
+    <p>Age: {{dogs.pet.age.$t}}</p>
+    <p>Gender: {{dogs.pet.sex.$t}}</p>
+    <p>Description: {{dogs.pet.description.$t}}</p>
+  </div>

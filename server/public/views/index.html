@@ -16,29 +16,24 @@
 
 </head>
 
-<body ng-app="myApp">
-    <h1>Data APIs!</h1>
+<body class="container" ng-app="myApp">
+    <h1>Pets Need Data APIs!</h1>
 
-    <div class="container" ng-controller="petController">
-        <div class="col-md-6">
-            <!-- <button ng-click="getRandomPet()">Random Pet</button> -->
+    <div class="row">
+        <ul class="nav nav-pills">
+            <li class="btn btn-outline-primary col-md-3 col-md-offset-1"><a href="#dogs">Get a Dog</a></li>
+            <li class="btn btn-outline-primary col-md-3 col-md-offset-1"><a href="#cats">Get a Cat</a></li>
+            <li class="btn btn-outline-primary col-md-3 col-md-offset-1"><a href="#birds">Get a Bird</a></li>
+        </ul>
+    </div>
 
-            <div class="row">
-                <ul class="nav nav-pills nav-justified">
-                    <li><a href="#dogs">Get a Dog</a></li>
-                    <li><a href="#cats">Get a Cat</a></li>
-                    <li><a href="#birds">Get a Bird</a></li>
-                </ul>
-            </div>
-        </div>
-        <div ng-view>
+    <div ng-view>
 
-        </div>
-        <div class="col-md-6">
-            <h2>{{pet.name.$t}}</h2>
-            <p>{{pet.description.$t}}</p>
-            <img ng-src="{{pet.media.photos.photo[2].$t}}" />
-        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>{{pet.name.$t}}</h2>
+        <p>{{pet.description.$t}}</p>
+        <img ng-src="{{pet.media.photos.photo[2].$t}}" />
     </div>
 </body>
 
