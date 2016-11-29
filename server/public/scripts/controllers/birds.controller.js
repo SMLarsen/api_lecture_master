@@ -19,7 +19,7 @@ myApp.controller("BirdsController", ['$http', function($http) {
         $http.jsonp(request).then(function(response) {
             self.pet = response.data.petfinder.pet;
             console.log(self.pet);
-            self.img = self.pet.media.photos.photo[0];
+            self.img = self.pet.media.photos.photo[2];
             self.img = self.img.$t;
             console.log(self.img);
         });
