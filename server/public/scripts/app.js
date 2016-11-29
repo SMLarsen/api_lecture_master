@@ -1,60 +1,52 @@
-$(document).ready(function() {
-    petFinder();
-});
+var myApp = angular.module('myApp', ['ngRoute']);
 
-function petFinder() {
-    // API Key
-    var key = 'your api key';
-    var key = 'b900e0d5e332753a460a64eaa8de00fd';
+myApp.config(['$routeProvider', function($routeProvider) {
 
-    var baseURL = 'http://api.petfinder.com/';
-    var query = 'pet.getRandom';
+    $routeProvider
+        .when('/cats', {
+            templateUrl: '/views/templates/cats.html',
+            controller: 'CatsController',
+            controllerAs: 'cats'
+        })
+        .when('/dogs', {
+            templateUrl: '/views/templates/dogs.html',
+            controller: 'DogsController',
+            controllerAs: 'dogs'
+        })
+        .when('/fish', {
+            templateUrl: '/views/templates/fish.html',
+            controller: 'FishController',
+            controllerAs: 'fish'
+        })
+        .otherwise({
+            redirectTo: '/dogs'
+        });
+}]);
+
+
+myApp.controller("petController", ["$scope", "$http", function($scope, $http) {
+  var key = 'b900e0d5e332753a460a64eaa8de00fd';
+  var baseURL = 'http://api.petfinder.com/';
+
+  $scope.getRandomPet = function() {
+    var query = baseURL + 'pet.getRandom';
     query += '?key=' + key;
-    query += '&animal=dog';
+    query += '&animal=barnyard';
     query += '&output=basic';
     query += '&format=json';
-    query += '&callback=?';
 
-    var request = baseURL + query;
-    console.log(request);
+    console.log('query: ', query);
 
-    $.ajax({
-        type: "GET",
-        url: encodeURI(request),
-        dataType: "jsonp",
-        crossDomain: true,
-        //jsonp: 'json_callback',
-        success: function(data) {
-            console.log(data.petfinder.pet);
-        }
-    });
-}
+    var request = encodeURI(query) + '&callback=JSON_CALLBACK';
 
+    $http.jsonp(request).then(function(response) {
+      $scope.pet = response.data.petfinder.pet;
 
-function gameSearch() {
-    var apikey = "ca5d63fdb921e2570069eb8267389c4a9260227a";
-    var baseUrl = "http://www.giantbomb.com/api";
-
-    // construct our URL
-    var gameSearchURL = baseUrl + '/search/?api_key=' + apikey + '&format=jsonp&limit=50';
-    var query = 'Batman & Robin';
-
-    var q = gameSearchURL + '&query=' + encodeURI(query);
-    console.log(q);
-
-    $.ajax({
-        type: "GET",
-        url: gameSearchURL + '&query=' + encodeURI(query),
-        dataType: "jsonp",
-        crossDomain: true,
-        jsonp: 'json_callback',
-        success: function(data) {
-            console.log(data);
-        }
     });
 
-}
 
-function searchCallback(data) {
-    console.log(data);
-}
+
+
+  };
+
+}]);
