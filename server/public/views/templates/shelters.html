@@ -1,0 +1,24 @@
+<h2>Shelters</h2>
+
+  <div>
+    <label class="col-md-2" for="statePicker">Select a state: </label>
+    <select class="statePicker form-control input-lg col-md-10" name="statePicker" ng-model="shelters.selectState" ng-change="shelters.getShelters()" ng-options="state for state in shelters.states"></select>
+
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th class="col-md-6">Name</th>
+          <th class="col-md-3">Location</th>
+          <th class="col-md-3">Telephone</th>
+        </tr>
+      </thead>
+      <tbody class="table-striped">
+      <tr class="shelter" ng-repeat="item in shelters.shelters">
+        <td>{{item.name.$t}}</td>
+        <td>{{item.city.$t}}, {{item.state.$t}}  {{item.zip.$t}}</td>
+        <td>{{item.phone.$t}}</td>
+      </tr>
+  </tbody>
+</table>
+
+  </div>

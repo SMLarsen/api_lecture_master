@@ -18,6 +18,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
             controller: 'BirdsController',
             controllerAs: 'birds'
         })
+        .when('/shelters', {
+            templateUrl: '/views/templates/shelters.html',
+            controller: 'SheltersController',
+            controllerAs: 'shelters'
+        })
         .otherwise({
             redirectTo: '/dogs'
         });
