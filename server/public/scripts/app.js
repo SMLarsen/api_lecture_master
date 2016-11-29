@@ -19,7 +19,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
             controllerAs: 'fish'
         })
         .otherwise({
-            redirectTo: '/dogs'
+            redirectTo: '/cats'
         });
 }]);
 

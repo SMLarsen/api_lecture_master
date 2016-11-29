@@ -12,7 +12,7 @@ app.get("/jq", function(req,res,next){
 // Handle index file separately
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, './public/views/index.html'));
-})
+});
 
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function() {
