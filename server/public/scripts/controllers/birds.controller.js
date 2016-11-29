@@ -26,6 +26,6 @@ myApp.controller("BirdsController", ['$http', function($http) {
 
     };
 
-        self.getBirds();
+    self.getBirds();
 
-    }]);
+}]);

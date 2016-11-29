@@ -26,6 +26,6 @@ myApp.controller("CatsController", ['$http', function($http) {
 
     };
 
-        self.getCat();
+    self.getCat();
 
-    }]);
+}]);
