@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
     <title>Data APIs!</title>
@@ -11,24 +12,34 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/controllers/dogs.controller.js"></script>
     <script type="text/javascript" src="/scripts/controllers/cats.controller.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/fish.controller.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/birds.controller.js"></script>
 
 </head>
+
 <body ng-app="myApp">
     <h1>Data APIs!</h1>
 
     <div class="container" ng-controller="petController">
-      <div class="col-md-6">
-        <button ng-click="getRandomPet()">Random Pet</button>
-      </div>
-      <div ng-view>
+        <div class="col-md-6">
+            <!-- <button ng-click="getRandomPet()">Random Pet</button> -->
 
-      </div>
-      <div class="col-md-6">
-        <h2>{{pet.name.$t}}</h2>
-        <p>{{pet.description.$t}}</p>
-        <img ng-src="{{pet.media.photos.photo[2].$t}}" />
-      </div>
+            <div class="row">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#dogs">Get a Dog</a></li>
+                    <li><a href="#cats">Get a Cat</a></li>
+                    <li><a href="#birds">Get a Bird</a></li>
+                </ul>
+            </div>
+        </div>
+        <div ng-view>
+
+        </div>
+        <div class="col-md-6">
+            <h2>{{pet.name.$t}}</h2>
+            <p>{{pet.description.$t}}</p>
+            <img ng-src="{{pet.media.photos.photo[2].$t}}" />
+        </div>
     </div>
 </body>
+
 </html>

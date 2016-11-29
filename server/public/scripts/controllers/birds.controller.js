@@ -1,14 +1,14 @@
-myApp.controller("FishController", ['$http', function($http) {
-    console.log('Fish controller Running');
+myApp.controller("BirdsController", ['$http', function($http) {
+    console.log('Birds controller Running');
     var self = this;
 
     var key = 'ff0874bda6aee17c9869854bd209ef4e';
     var baseURL = 'http://api.petfinder.com/';
 
-    self.getFish = function() {
+    self.getBirds = function() {
         var query = baseURL + 'pet.getRandom';
         query += '?key=' + key;
-        query += '&animal=fish';
+        query += '&animal=bird';
         query += '&output=basic';
         query += '&format=json';
 
@@ -19,13 +19,13 @@ myApp.controller("FishController", ['$http', function($http) {
         $http.jsonp(request).then(function(response) {
             self.pet = response.data.petfinder.pet;
             console.log(self.pet);
-            // self.img = self.pet.media.photos.photo[0];
-            // self.img = self.img.$t;
-            // console.log(self.img);
+            self.img = self.pet.media.photos.photo[0];
+            self.img = self.img.$t;
+            console.log(self.img);
         });
 
     };
 
-        self.getFish();
+        self.getBirds();
 
     }]);
